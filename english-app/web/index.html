@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>英語学習アプリ | English Learner for Japanese</title>
+    <meta name="description" content="日本語話者のためのシンプルで楽しい英語学習アプリ。単語・フレーズの暗記、クイズ、発音練習に対応。" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🇬🇧</text></svg>">
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>英語学習アプリ</h1>
+      <p class="subtitle">日本語話者のためのシンプル学習ツール。単語・フレーズをクイズ形式で定着させ、音声で発音も確認できます。</p>
+    </header>
+
+    <main class="container">
+      <section class="controls">
+        <div class="control">
+          <label for="categorySelect">カテゴリ</label>
+          <select id="categorySelect">
+            <option value="all">すべて</option>
+          </select>
+        </div>
+        <div class="control">
+          <label for="levelSelect">レベル</label>
+          <select id="levelSelect">
+            <option value="">指定なし</option>
+          </select>
+        </div>
+        <div class="control">
+          <label>モード</label>
+          <div class="radio-group">
+            <label><input type="radio" name="mode" value="en-ja" checked /> 英→日</label>
+            <label><input type="radio" name="mode" value="ja-en" /> 日→英</label>
+            <label><input type="radio" name="mode" value="listen" /> リスニング</label>
+          </div>
+        </div>
+        <div class="control">
+          <label for="limitInput">出題数</label>
+          <input id="limitInput" type="number" min="1" max="100" value="20" />
+        </div>
+        <div class="control control-buttons">
+          <button id="startBtn" class="primary">開始</button>
+          <button id="shuffleBtn" class="secondary">シャッフル</button>
+        </div>
+      </section>
+
+      <section id="quiz" class="quiz hidden">
+        <div class="card" id="card">
+          <div class="badge" id="badge">問題</div>
+          <div class="prompt" id="prompt">Loading...</div>
+          <input id="answer" class="answer" type="text" placeholder="ここに解答を入力" autocomplete="off" />
+          <div class="actions">
+            <button id="speakBtn" title="音声">🔊 音声</button>
+            <button id="showBtn">答えを見る</button>
+            <button id="checkBtn" class="primary">採点</button>
+            <button id="nextBtn" class="secondary">次へ</button>
+          </div>
+          <div id="feedback" class="feedback"></div>
+          <div id="details" class="details hidden"></div>
+        </div>
+        <aside class="stats">
+          <div><strong>正解</strong>: <span id="statCorrect">0</span></div>
+          <div><strong>不正解</strong>: <span id="statWrong">0</span></div>
+          <div><strong>連続正解</strong>: <span id="statStreak">0</span></div>
+          <div><strong>今日の学習</strong>: <span id="statToday">0</span> / <span id="statGoal">20</span></div>
+        </aside>
+      </section>
+
+      <section class="tips">
+        <h2>学習のコツ</h2>
+        <ul>
+          <li><strong>毎日短時間</strong>でも継続しましょう。</li>
+          <li><strong>発音</strong>ボタンで耳からも慣れましょう。</li>
+          <li><strong>例文</strong>で使い方のイメージを掴みましょう。</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <small>© <span id="year"></span> 英語学習アプリ</small>
+    </footer>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
